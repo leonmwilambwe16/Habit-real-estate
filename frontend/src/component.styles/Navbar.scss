@@ -1,111 +1,122 @@
 .navbar-container {
   width: 100%;
   position: fixed;
+  height: 80px;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 9999;
   background: black;
-  overflow-x: hidden;
+  overflow: hidden;
+  color: white;
 
   .container-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    color: white;
-    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-    .logo-box {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: clamp(1.2rem, 3vw, 1.5rem);
+  /* Logo */
+  .logo-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.4rem;
+    cursor: pointer;
+
+    svg {
+      font-size: 1.8rem;
+      color: #007bff;
     }
+  }
 
-    .menu-bar {
+  /* MENU BAR */
+  .menu-bar {
+    display: flex;
+
+    .list-menu {
       display: flex;
+      gap: 20px;
+      list-style: none;
 
-      .list-menu {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        list-style: none;
-
-        .list-nav {
-          color: white;
-          text-decoration: none;
-          font-size: clamp(1rem, 3vw, 1.1rem);
-          position: relative;
-
-          &::after {
-            content: "";
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            height: 2px;
-            width: 100%;
-            background-color: #007bff;
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-          }
-
-          &:hover::after {
-            transform: scaleX(1);
-          }
-        }
-      }
-    }
-
-    .icon-box {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-
-      .auth-btn {
-        padding: 7px 25px;
-        background: #007bff;
-        border-radius: 20px;
-        border: none;
+      .list-nav {
         color: white;
-      }
+        text-decoration: none;
+        font-size: 1.1rem;
+        position: relative;
+        padding: 5px 0;
 
-      .btn-open-close {
-        display: none;
-        font-size: 2rem;
-        cursor: pointer;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          height: 2px;
+          width: 100%;
+          background-color: #007bff;
+          transform: scaleX(0);
+          transition: transform 0.3s ease;
+        }
+
+        &:hover::after {
+          transform: scaleX(1);
+        }
       }
     }
   }
 
+  /* ICONS + HAMBURGER */
+  .icon-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .auth-btn {
+      padding: 7px 18px;
+      background: #007bff;
+      border-radius: 20px;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .btn-open-close {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  }
+
+  /* 📱 MOBILE STYLES */
   @media (max-width: 768px) {
     .menu-bar {
-      position: absolute;
-      top: 60px;
+      position: fixed;
+      top: 65px;
       left: 0;
       right: 0;
-      background: rgba(0, 0, 0, 0.95);
-      display: none;
+      background: #111111b6; /* dark background for visibility */
       flex-direction: column;
-      padding: 20px;
+      align-items: center;
+      gap: 15px;
+      padding: 20px 0;
+      display: none; /* hidden by default */
+      z-index: 10000;
 
       &.open {
-        display: flex;
+        display: flex; /* shown when open */
       }
 
       .list-menu {
         flex-direction: column;
         gap: 20px;
-        align-items: center;
       }
     }
 
     .icon-box {
       .btn-open-close {
-        display: block;
-      }
-
-      .modal .greeting {
-        display: none;
+        display: block; /* show hamburger */
       }
     }
   }

@@ -12,6 +12,7 @@ body {
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
   background-color: rgb(226, 225, 208);
+  scroll-behavior: smooth;
 }
 
 * {
