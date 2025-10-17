@@ -36,7 +36,7 @@ const PropertyDetails:React.FC = () => {
         ))}
       </div>
        <div className="property-description">
-        <p>{property.description || "No description available."}</p>
+        <p>"No description available."</p>
       </div>
        <button className="favorite-btn" onClick={handleAddToFavorites}>
         ❤️ Add to Favorites
