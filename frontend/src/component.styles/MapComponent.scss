@@ -1,0 +1,13 @@
+.map-wrapper {
+  width: 100%;
+  height: 100%; // make wrapper fill its parent (.box-content-right)
+  display: flex;
+  flex-direction: column;
+}
+
+.map-container {
+  width: 100%;
+  height: 100%; // make the map fill the wrapper
+  border-radius: 12px;
+  overflow: hidden;
+}
