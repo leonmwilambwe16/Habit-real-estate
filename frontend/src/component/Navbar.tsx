@@ -48,7 +48,9 @@ const Navbar: React.FC = () => {
               <UserButton />
             </div>
           ) : (
-            <button onClick={openSignIn} className='auth-btn'>Login</button>
+            
+            <button onClick={()=>openSignIn()} 
+            className='auth-btn'>Login</button>
           )}
 
           {/* ✅ Hamburger / Close Icon */}

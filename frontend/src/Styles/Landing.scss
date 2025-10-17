@@ -1,8 +1,8 @@
 .container-landing {
   padding: 5px 11px;
-  overflow-x: hidden;
-  
+  overflow-x: hidden; // ✅ Prevent horizontal overflow
 
+  /* 🏠 Hero Section */
   .landing-container {
     background-image: url(../assets/bgbackgound.jpg);
     background-size: cover;
@@ -56,7 +56,8 @@
             color: #fff;
           }
 
-          select, input {
+          select,
+          input {
             padding: 8px 12px;
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.5);
@@ -90,6 +91,7 @@
     }
   }
 
+  /* 🏡 Featured Properties */
   .feature-property {
     width: 100%;
     display: flex;
@@ -109,10 +111,11 @@
       .feature-left,
       .feature-right {
         width: 100%;
-        height: auto;
       }
 
-      .picture1, .picture2, .picture3 {
+      .picture1,
+      .picture2,
+      .picture3 {
         background-size: cover;
         background-position: center;
         border-radius: 3px;
@@ -129,13 +132,42 @@
           color: #fff;
 
           h4 {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            margin: 0;
+            font-size: 1.1rem;
+          }
+
+          .localisation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+
+            span {
+              display: flex;
+              align-items: center;
+              gap: 5px;
+
+              p {
+                margin: 0;
+                font-size: 0.9rem;
+              }
+            }
+
+            svg {
+              cursor: pointer;
+              transition: color 0.3s ease;
+
+              &:hover {
+                color: #ff4b5c;
+              }
+            }
           }
         }
       }
     }
   }
 
+  /* 🏘 Property Around Section */
   .property-aroud {
     margin-top: 40px;
 
@@ -152,8 +184,10 @@
         border: none;
         border-radius: 30px;
         transition: all 0.3s ease;
+        cursor: pointer;
 
-        &:hover, &.active {
+        &:hover,
+        &.active {
           background-color: #007bff;
           color: #fff;
         }
@@ -188,10 +222,35 @@
           padding: 10px 15px;
           margin: 0;
         }
+
+        .location-rate {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 15px 10px;
+
+          p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #555;
+          }
+
+          svg {
+            font-size: 0.9rem;
+          }
+
+          .rating-number {
+            margin-left: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #333;
+          }
+        }
       }
     }
   }
 
+  /* ✨ Testimonials */
   .testimony {
     display: flex;
     flex-direction: column;
@@ -201,62 +260,91 @@
     h1 {
       text-align: center;
       margin-bottom: 20px;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 600;
     }
 
     .testi-container {
       position: relative;
       overflow: hidden;
       width: 100%;
+      max-width: 600px;
       margin: 0 auto;
-
-      .slider-btn {
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        transform: translateY(-50%);
-        z-index: 2;
-
-        .slides-btn {
-          color: black;
-          font-size: 40px;
-          cursor: pointer;
-          transition: color 0.3s ease;
-
-          &:hover {
-            color: #007bff;
-          }
-        }
-      }
 
       .testimonial-wrapper {
         display: flex;
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.6s ease-in-out;
         width: 100%;
       }
 
       .testimonial-card {
         min-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         padding: 20px;
         background: #fff;
         border-radius: 10px;
         text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-height: 320px;
 
         img {
-          width: 100px;
-          height: 100px;
-          object-fit: contain;
+          width: 80px;
+          height: 80px;
+          object-fit: cover;
           border-radius: 50%;
-          margin-bottom: 15px;
+          margin-bottom: 10px;
+        }
+
+        .name-descrpt-testy {
+          max-width: 90%;
+
+          p {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+          }
+
+          h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+          }
         }
       }
     }
   }
 }
 
+/* 📱 Responsive */
 @media (max-width: 768px) {
   .landing-container {
     height: 500px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .testi-container {
+    max-width: 90%;
+  }
+
+  .testimonial-card {
+    padding: 15px;
+
+    img {
+      width: 70px;
+      height: 70px;
+    }
+
+    .name-descrpt-testy p {
+      font-size: 0.85rem;
+    }
   }
 }
